@@ -450,6 +450,75 @@
       50%       { opacity: 0.5; transform: scale(0.8); }
     }
 
+    /* ── Agentic QA section ──────────────────────────────────── */
+    .grid-2 {
+      display:               grid;
+      grid-template-columns: repeat(auto-fill, minmax(clamp(280px, 42vw, 460px), 1fr));
+      gap:                   clamp(12px, 1.6vw, 20px);
+    }
+
+    .agentic-card {
+      background:    rgba(10,132,255,0.04);
+      border:        1px solid rgba(10,132,255,0.14);
+      border-radius: clamp(12px, 1.4vw, 18px);
+      padding:       clamp(22px, 2.8vw, 36px);
+      position:      relative;
+      overflow:      hidden;
+      opacity:       0;
+      transition:    border-color 0.22s, background 0.22s;
+    }
+
+    .agentic-card::before {
+      content:    '';
+      position:   absolute;
+      top: 0; left: 0; right: 0;
+      height:     1px;
+      background: linear-gradient(90deg, transparent, rgba(10,132,255,0.5), transparent);
+    }
+
+    .agentic-card:hover {
+      border-color: rgba(10,132,255,0.28);
+      background:   rgba(10,132,255,0.07);
+    }
+
+    .agentic-card-header {
+      display:     flex;
+      align-items: center;
+      gap:         10px;
+      margin-bottom: clamp(12px, 1.5vw, 18px);
+    }
+
+    .agentic-icon {
+      font-size: clamp(20px, 2.4vw, 28px);
+      line-height: 1;
+    }
+
+    .agentic-tag {
+      font-size:      10px;
+      font-weight:    600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color:          var(--accent);
+      background:     rgba(10,132,255,0.1);
+      border:         1px solid rgba(10,132,255,0.2);
+      border-radius:  980px;
+      padding:        3px 9px;
+    }
+
+    .agentic-title {
+      font-size:      clamp(15px, 1.6vw, 19px);
+      font-weight:    700;
+      letter-spacing: -0.015em;
+      color:          var(--label-1);
+      margin-bottom:  8px;
+    }
+
+    .agentic-desc {
+      font-size:   clamp(12px, 1.2vw, 14px);
+      line-height: 1.65;
+      color:       var(--label-2);
+    }
+
     /* ── Responsive ──────────────────────────────────────────── */
     @media (max-width: 640px) {
       .nav-links a:not(:last-child) { display: none; }
@@ -466,6 +535,7 @@
     <div class="nav-links">
       <a href="#expertise">Expertise</a>
       <a href="#known">Known for</a>
+      <a href="#agentic">Agentic QA</a>
       <a href="#now">Now</a>
       <a href="https://www.linkedin.com/in/joey-v-287ba5394" target="_blank" rel="noopener">LinkedIn ↗</a>
     </div>
@@ -624,6 +694,53 @@
 
 <div class="divider"></div>
 
+<!-- Agentic QA -->
+<section id="agentic">
+  <div class="wrap">
+    <div class="section-header">
+      <p class="section-eyebrow">Agentic QA</p>
+      <h2 class="section-heading">The next QA stack<br>runs on agents.</h2>
+      <p class="section-sub">Modern software is too fast and too interconnected for purely scripted quality assurance. I'm building tools that use Claude, local models, and automation frameworks to triage, reproduce, and generate — so quality teams can focus on judgment, not mechanics.</p>
+    </div>
+    <div class="grid-2">
+      <div class="agentic-card">
+        <div class="agentic-card-header">
+          <span class="agentic-icon">🤖</span>
+          <span class="agentic-tag">Claude Code skills</span>
+        </div>
+        <h3 class="agentic-title">QA workflow skills</h3>
+        <p class="agentic-desc">Custom Claude Code skills that automate end-to-end QA workflows — from test planning to artifact capture — triggered by a single prompt.</p>
+      </div>
+      <div class="agentic-card">
+        <div class="agentic-card-header">
+          <span class="agentic-icon">📋</span>
+          <span class="agentic-tag">LLM + logs</span>
+        </div>
+        <h3 class="agentic-title">Intelligent log triage</h3>
+        <p class="agentic-desc">Crash logs, proxy traffic, and diagnostic artifacts fed to local and hosted models for instant signal extraction and failure classification.</p>
+      </div>
+      <div class="agentic-card">
+        <div class="agentic-card-header">
+          <span class="agentic-icon">🧪</span>
+          <span class="agentic-tag">AI test generation</span>
+        </div>
+        <h3 class="agentic-title">Test case generation</h3>
+        <p class="agentic-desc">Converting bug reports, tickets, and specs into structured test cases using LLMs — covering edge cases a human reviewer would miss under time pressure.</p>
+      </div>
+      <div class="agentic-card">
+        <div class="agentic-card-header">
+          <span class="agentic-icon">🔁</span>
+          <span class="agentic-tag">Autonomous agents</span>
+        </div>
+        <h3 class="agentic-title">Agentic defect reproduction</h3>
+        <p class="agentic-desc">Agents that autonomously reproduce, diagnose, and document bugs — producing high-fidelity reproduction steps and artifacts without manual intervention.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
 <!-- Footer -->
 <footer>
   <div class="wrap">
@@ -695,6 +812,9 @@
 
   // ── Now cards ────────────────────────────────────────────
   onScroll('.now-card', 0.1);
+
+  // ── Agentic cards ─────────────────────────────────────────
+  onScroll('.agentic-card', 0.09);
 
 }());
 </script>
